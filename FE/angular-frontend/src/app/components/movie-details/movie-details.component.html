@@ -1,0 +1,51 @@
+
+<h3>Displaying Data for Movie: {{ movie.title }}</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Duration (min)</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Admin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ movie.id }}</td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.duration }}</td>
+            <td>{{ movie.genre }}</td>
+            <td>{{ movie.rating }}</td>
+            <td><button (click)="delete(movie.id, movie)">Delete</button></td> 
+        </tr>
+    </tbody>
+</table>
+<div class="col-md-4 offset-md-3">
+
+    <h3>Update Movie</h3>
+    <form (ngSubmit)="onSubmit(movie.id, movie)">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control"
+            id="title" [(ngModel)]="movie.title" name="title">
+        </div>
+        <div class="form-group">
+            <label>Duration</label>
+            <input type="text" class="form-control"
+            id="title" [(ngModel)]="movie.duration" name="duration">
+        </div>
+        <div class="form-group">
+            <label>Genre</label>
+            <input type="text" class="form-control"
+            id="title" [(ngModel)]="movie.genre" name="genre">
+        </div>
+        <div class="form-group">
+            <label>Rating</label>
+            <input type="text" class="form-control"
+            id="title" [(ngModel)]="movie.rating" name="rating1">
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>

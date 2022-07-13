@@ -1,0 +1,32 @@
+<div class="search">
+    <button (click)="search(movie.title)">Search</button>
+    <input type="text" placeholder="Search by Id">
+</div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Duration (min)</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.duration }}</td>
+                <td>{{ movie.genre }}</td>
+                <td>{{ movie.rating }}</td>
+                <td><button (click)="readById(movie.id, movie)">Update</button>
+                    <button (click)="delete(movie.id, movie)">Delete</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- <button (click)="delete(movie.id, movie)">Delete</button> -->
+
