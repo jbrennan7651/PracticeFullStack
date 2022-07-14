@@ -12,7 +12,7 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieDetailsComponent implements OnInit {
 
   currentId !: any;
-  movie !: Movie;
+  movie : Movie = new Movie;
   movies : Movie[] = new Array;
  
   constructor(private movieService: MovieService, 

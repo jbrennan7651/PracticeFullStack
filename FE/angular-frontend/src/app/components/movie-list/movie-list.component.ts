@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/movie';
@@ -11,11 +12,13 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
 })
 export class MovieListComponent implements OnInit {
 
+  searchTerm = '';
+  term = '';
   movie: Movie = new Movie;
   idNum !: number;
   movies : Movie[] =  new Array ;
-  currentMovie  = null;
-  currentIndex = -1;
+
+  
   constructor(private movieService: MovieService,
     private router: Router) { }
 
@@ -38,13 +41,12 @@ export class MovieListComponent implements OnInit {
     window.location.reload();
   }
 
-  setCurrentMovie(movie: any, index: any): void{
-    this.currentIndex = index;
-    this.currentMovie = movie;
-  }
+  // setCurrentMovie(movie: any, index: any): void{
+  //   this.currentIndex = index;
+  //   this.currentMovie = movie;
+  // }
 
   delete(id: number, movie: any){
-    this.currentMovie = movie;
     this.movieService.delete(id).subscribe(data => {
       console.log(data)
     });
@@ -63,10 +65,22 @@ export class MovieListComponent implements OnInit {
     this.router.navigate([`/movies/${id}`])
   }
 
-  search(title: string){
+  // onSubmit(id: number){
+  //   console.log(this.movie.id);
+  //   this.goToMovieById(this.movie.id);
+  // }
 
-    
-  }
+  // filterMovies(input : any){
+  //   this.searchText = input;
+  //   this.movies.filter(data => {
+  //     for(let movie of this.movies){
+  //       if(input = movie.id || input.equalsIgnoreCase(movie.title)|| input === movie.duration|| input === movie.genre || input === movie.rating){
+  //         this.readById(movie.id, movie);
+  //       }
+  //       else()
+  //     }
+  //   })
+  // }
 
 
 
